@@ -1,13 +1,34 @@
 from flask import jsonify
+import app
 
 
 class TranslationController:
-    def morseToText(morse):
-        text = morse
+    def decrypt(morse):
+        morse += ' '
+        text, currentLetter = '', ''
+        spaces = 0
 
-        return jsonify({'Decoded message': text}), 200
+        for char in morse:
+            if char != ' ':
+                currentLetter += char
+                spaces = 0
+            else:
+                spaces += 1
+                if spaces == 2:
+                    text += ' '
+                else:
+                    text += app.redis_client.get(currentLetter)
+                    currentLetter = ''
 
-    def textToMorse(text):
-        morse = text
+        return jsonify({'Decrypted message': text.strip()}), 200
 
-        return jsonify({'Encoded message': morse}), 200
+    def encrypt(text):
+        morse = ''
+        for letter in text.lower():
+            if letter == ' ':
+                morse += ' '
+
+            else:
+                morse += app.redis_client.get(letter) + ' '
+
+        return jsonify({'Encrypted message': morse.strip()}), 200
