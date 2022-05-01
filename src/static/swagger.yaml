@@ -1,0 +1,12 @@
+openapi: "3.0.0"
+info:
+  title: Morse Code Translator API,
+  description: API for morse code encryption and decryption,
+  version: 0.0.1
+servers:
+  - url: http://127.0.0.1:5000/
+paths:
+  /encrypt:
+    $ref: "./paths/encrypt.yaml"
+  /decrypt:
+    $ref: "./paths/decrypt.yaml"

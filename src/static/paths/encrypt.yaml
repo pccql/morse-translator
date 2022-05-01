@@ -1,0 +1,20 @@
+post:
+  tags: [Encrypt]
+  summary: Encrypts a text to morse code
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/message.yaml"
+        example:
+          message: Hello World
+  responses:
+    "200":
+      description: Encrypted message
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/message.yaml"
+          example:
+            message: .... . .-.. .-.. ---  .-- --- .-. .-.. -..
