@@ -1,4 +1,4 @@
-import utils.morseCodeTable as morseCode
+from utils import morseCode
 
 
 def populateDatabase(database_client):

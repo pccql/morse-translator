@@ -1,4 +1,3 @@
-from curses.ascii import isalnum
 from flask import jsonify
 import app
 

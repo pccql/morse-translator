@@ -1,4 +1,4 @@
-from interfaces.DatabaseInterface import DatabaseInterface
+from interfaces import DatabaseInterface
 
 
 class RedisAdapter(DatabaseInterface):

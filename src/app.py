@@ -3,9 +3,9 @@ from flask import Flask, request
 from flask_redis import FlaskRedis
 from config.swaggerConfig import swagger_blueprint
 
-from controllers.TranslationController import TranslationController
-from utils.populateDatabase import populateDatabase
-from adapters.RedisAdapter import RedisAdapter
+from controllers import TranslationController
+from utils import populateDatabase
+from adapters import RedisAdapter
 
 load_dotenv()
 
@@ -20,7 +20,7 @@ app.register_blueprint(swagger_blueprint)
 
 @app.route("/")
 def index():
-    return "<p>Hello, go to /docs to see the API documentation!</p>"
+    return "<h3>Hello, go to /docs to see the API documentation!</h3>"
 
 
 @app.route("/decrypt", methods=['POST'])
