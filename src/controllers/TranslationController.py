@@ -17,7 +17,7 @@ class TranslationController:
                 if spaces == 2:
                     text += ' '
                 else:
-                    text += app.redis_client.get(currentLetter)
+                    text += app.database_client.get(currentLetter)
                     currentLetter = ''
 
         return jsonify({'Decrypted message': text.strip()}), 200
@@ -29,6 +29,6 @@ class TranslationController:
                 morse += ' '
 
             else:
-                morse += app.redis_client.get(letter) + ' '
+                morse += app.database_client.get(letter) + ' '
 
         return jsonify({'Encrypted message': morse.strip()}), 200

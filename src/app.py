@@ -5,13 +5,16 @@ from config.swaggerConfig import swagger_blueprint
 
 from controllers.TranslationController import TranslationController
 from utils.populateDatabase import populateDatabase
+from adapters.RedisAdapter import RedisAdapter
 
 load_dotenv()
 
 app = Flask(__name__)
 
 redis_client = FlaskRedis(app, decode_responses=True)
-populateDatabase(redis_client)
+database_client = RedisAdapter(redis_client)
+
+populateDatabase(database_client)
 app.register_blueprint(swagger_blueprint)
 
 
