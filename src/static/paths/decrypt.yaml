@@ -18,3 +18,5 @@ post:
             $ref: "../schemas/message.yaml"
           example:
             message: Hello
+    "400":
+      description: Only dashes, dots and spaces are allowed

@@ -1,6 +1,6 @@
 openapi: "3.0.0"
 info:
-  title: Morse Code Translator API,
+  title: Morse Code Translator API
   description: API for morse code encryption and decryption,
   version: 0.0.1
 servers:

@@ -12,4 +12,4 @@ def populateDatabase(database_client):
             database_client.set(key, value)
             database_client.set(value, key)
     except:
-        print("❌ Connection to Redis database failed, make sure to run 'redis-server' in another terminal ❌")
+        print("❌ Connection to the database failed, make sure to run 'redis-server' in another terminal ❌")

@@ -18,3 +18,5 @@ post:
             $ref: "../schemas/message.yaml"
           example:
             message: .... . .-.. .-.. ---  .-- --- .-. .-.. -..
+    "400":
+      description: Only letters and numbers are allowed
