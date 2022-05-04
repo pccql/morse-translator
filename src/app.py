@@ -2,8 +2,10 @@ from dotenv import load_dotenv
 from flask import Flask, request
 from flask_redis import FlaskRedis
 from config.swaggerConfig import swagger_blueprint
+from flask_expects_json import expects_json
 
 from controllers import TranslationController
+from DTOs import messageSchema
 from utils import populateDatabase
 from adapters import RedisAdapter
 
@@ -24,6 +26,7 @@ def index():
 
 
 @app.route("/decrypt", methods=['POST'])
+@expects_json(messageSchema)
 def decrypt():
     morse = request.json["message"]
 
@@ -31,6 +34,7 @@ def decrypt():
 
 
 @app.route("/encrypt", methods=['POST'])
+@expects_json(messageSchema)
 def encrypt():
     text = request.json["message"]
 
